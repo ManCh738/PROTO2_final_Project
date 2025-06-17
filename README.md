@@ -6,7 +6,7 @@ Die Steuerung erfolgt über ein Raspberry Pi in Verbindung mit einem Digilab-Mod
 --- 
 
 ## Projektübersicht
-[Link zu meinem Projekt-Planner](https://github.com/users/ManCh738/projects/2/views/1)
+### [Link zu meinem Projekt-Planner](https://github.com/users/ManCh738/projects/2/views/1)
 ---
 
 ##  Projektphasen & Arbeitsschritte
