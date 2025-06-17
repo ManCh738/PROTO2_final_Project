@@ -19,12 +19,12 @@ Die Steuerung erfolgt über ein Raspberry Pi in Verbindung mit einem Digilab-Mod
 ### Phase 2 – Tastensteuerung
 **Ziel:** Spotify-Funktionen über Buttons auslösen  
 **Arbeitsschritte:**
-- S1: Nächster Titel (`/v1/me/player/next`)  
-- S2: Vorheriger Titel (`/v1/me/player/previous`)  
-- S5: Wiedergabe pausieren (`/v1/me/player/pause`)  
-- S6: Wiedergabe starten (`/v1/me/player/play`)  
+- S1: Nächster Titel 
+- S2: Vorheriger Titel 
+- S5: Wiedergabe pausieren 
+- S6: Wiedergabe starten
 - Node-RED `http request`-Nodes konfigurieren  
-- Zugriffs-Token verwalten (Refresh-Mechanismus ggf. über `function`-Node oder Subflow)
+- Zugriffs-Token verwalten
 
 ---
 
