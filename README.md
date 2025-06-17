@@ -1,72 +1,74 @@
-# PROTO2_final_Project
+##  Projektziel
 
-Ziel dieses Projekts ist es, ein Musiksteuerungssystem zu entwickeln, das über physische Buttons (S1–S6) Musikfunktionen wie „nächster Titel“, „vorheriger Titel“, „Musik starten/stoppen“ steuert und gleichzeitig auf einem LCD-Bildschirm den aktuellen Musiktitel sowie den Interpreten anzeigt. Die Steuerung erfolgt über ein Raspberry Pi, das mit einem externen Digilab-Modul verbunden ist. Dies ermöglicht eine intuitive und direkte Musikkontrolle ohne grafische Benutzeroberfläche.
+Ziel dieses Projekts ist es, ein Musiksteuerungssystem zu entwickeln, das über physische Buttons (S1–S6) Spotify-Funktionen wie „nächster Titel“, „vorheriger Titel“, „Wiedergabe starten/pausieren“ steuert und gleichzeitig auf einem LCD-Bildschirm den aktuellen Musiktitel sowie den Sänger anzeigt.  
+Die Steuerung erfolgt über ein Raspberry Pi in Verbindung mit einem Digilab-Modul. Die Programmierung und Steuerlogik wird vollständig mit **Node-RED** umgesetzt. Spotify wird über die **offizielle Web API** eingebunden.
 
 ---
 
 ##  Projektphasen & Arbeitsschritte
 
 ### Phase 1 – Infrastruktur & Verbindungen
-**Ziel:** Grundverbindung zwischen Raspberry Pi und Digilab herstellen  
+**Ziel:** Verbindung zwischen Raspberry Pi, Digilab und Spotify vorbereiten  
 **Arbeitsschritte:**
-- Verbindung und Kommunikation testen  
-- GPIO-Funktionalität prüfen  
-
-**Wichtigkeit:**  Kritisch – Grundvoraussetzung für alle weiteren Phasen
+- GPIO-Kommunikation mit Buttons über Node-RED einrichten  
+- OAuth-Authentifizierung für Spotify API durchführen  
+- Testabfragen aus Node-RED an Spotify senden
 
 ---
 
-### Phase 2 – Hardware-Logik für Tasten
-**Ziel:** Tastenfunktionalität (S1–S6) implementieren  
+### Phase 2 – Tastensteuerung
+**Ziel:** Spotify-Funktionen über Buttons auslösen  
 **Arbeitsschritte:**
-- S1: Nächster Song  
-- S2: Vorheriger Song  
-- S5: Musik pausieren  
-- S6: Musik abspielen  
-
-**Wichtigkeit:**  Kritisch – Benutzerinteraktion steht im Zentrum des Projekts
+- S1: Nächster Titel (`/v1/me/player/next`)  
+- S2: Vorheriger Titel (`/v1/me/player/previous`)  
+- S5: Wiedergabe pausieren (`/v1/me/player/pause`)  
+- S6: Wiedergabe starten (`/v1/me/player/play`)  
+- Node-RED `http request`-Nodes konfigurieren  
+- Zugriffs-Token verwalten (Refresh-Mechanismus ggf. über `function`-Node oder Subflow)
 
 ---
 
 ### Phase 3 – LCD-Ausgabe
-**Ziel:** Songtitel und Interpret auf einem LCD anzeigen  
+**Ziel:** Anzeige von Songtitel und Interpret auf LCD-Display  
 **Arbeitsschritte:**
-- Verbindung mit LCD herstellen  
-- Anzeige von Metadaten formatieren  
-
-**Wichtigkeit:**  Wichtig – Visuelle Rückmeldung verbessert die Benutzererfahrung
+- Abfrage von aktuell gespieltem Song (`/v1/me/player/currently-playing`)  
+- Ausgabe über I2C-Display 
+- Text kürzen/scrollen bei langen Titeln  
 
 ---
 
 ### Phase 4 – Dokumentation
-**Ziel:** Technische und Benutzer-Dokumentation erstellen  
+**Ziel:** Technische Dokumentation und Benutzeranleitung  
 **Arbeitsschritte:**
-- Diese `README.md` schreiben  
-- Quellcode kommentieren  
-
-**Wichtigkeit:**  Moderat – Erhöht Nachvollziehbarkeit und Reproduzierbarkeit
+- Aufbau der `README.md`  
+- Node-RED Flows dokumentieren  
+- Authentifizierungsprozess und API-Verwendung erklären  
 
 ---
 
 ##  Technologien & Tools
 
-- **Raspberry Pi 4** – als zentrale Steuerungseinheit  
-- **Digilab Modul** – für physische Button-Schnittstelle  
-- **Python** – Hauptprogrammiersprache für GPIO-Handling und Musiksteuerung  
-- **LCD 16x2 Display (I2C)** – zur Anzeige von Titelinformationen  
-- **mpg123 / VLC** – zur Musikwiedergabe über CLI  
+- **Raspberry Pi 4** – zentrale Steuerungseinheit  
+- **Node-RED** – visuelle Programmierplattform  
+- **Spotify Web API** – Steuerung der Musikwiedergabe  
+- **OAuth 2.0 (Authorization Code Flow)** – für sichere Spotify-Zugriffe  
+- **Digilab Modul** – GPIO-Eingabe über Buttons  
+- **LCD 16x2 (I2C)** – für Song- und Künstleranzeige  
+- **Node-RED LCD Nodes** – zur Ansteuerung des Displays  
 
 ---
 
-##  Lösungsansätze
+## 🔍 Lösungsansätze
 
-- **GPIO-Tasten-Events:** Die Buttons lösen Interrupts aus, die mit spezifischen Callback-Funktionen verknüpft sind.  
-- **LCD-Anzeige:** Mittels I2C-Kommunikation wird der aktuelle Songtitel und Interpret angezeigt.  
-- **Modularer Aufbau:** Code wird in logische Module getrennt, z. B. `button_control.py`, `lcd_display.py`, `music_player.py`.  
-- **Fehlerbehandlung:** Debouncing der Buttons, Prüfung auf Song-Ende, Fallback bei leeren Metadaten.
+- **Buttonsteuerung via GPIO:** Node-RED empfängt Tastensignale über `rpi-gpio in` Nodes  
+- **Spotify-Steuerung per API:** HTTP-Requests an Spotify mit aktuellen Access-Tokens 
+- **Metadaten-Anzeige:** Titel und Interpret werden regelmäßig abgefragt und per I2C-LCD angezeigt  
+- **Token-Management:** Access-Token werden mit dem Refresh-Token zyklisch erneuert   
+- **Fehlerbehandlung:** Prüfung auf Offline-Geräte, nicht autorisierte Requests oder abgelaufene Tokens  
 
 ---
 
-##  Was macht dieses Projekt einzigartig?
+## 🌟 Was macht dieses Projekt einzigartig?
 
-Dieses Projekt kombiniert klassische Embedded-Systeme (Buttonsteuerung und LCD-Ausgabe) mit moderner Software für Musiksteuerung. Es ermöglicht eine einfache, bildschirmlose Bedienung, die besonders für Maker-Projekte, DIY-Jukeboxes oder barrierefreie Bedienkonzepte interessant ist. Die Lösung ist kompakt, nachvollziehbar und modular aufgebaut – ideal als Einstieg in GPIO-Programmierung und Embedded-Prototyping mit Raspberry Pi.
+Dieses Projekt vereint Hardware-Eingabe (Tasten), Webservice-Steuerung (Spotify API) und visuelles Feedback (LCD) in einem vollständig lokal steuerbaren, grafisch entwickelten Node-RED Flow. Die Integration der Spotify Web API in eine Raspberry-Pi-basierte Hardwarelösung ist nicht nur funktional, sondern auch ein hervorragendes Beispiel für modernes IoT-Prototyping mit Fokus auf Musik und Medien.  
+Es ist ein ideales Lernprojekt für Themen wie: API-Nutzung, OAuth2, GPIO, LCD-Steuerung und Node-RED-Visualisierung.
