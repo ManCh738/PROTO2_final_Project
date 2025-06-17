@@ -62,7 +62,7 @@ Die Steuerung erfolgt über ein Raspberry Pi in Verbindung mit einem Digilab-Mod
 
 ---
 
-## 🔍 Lösungsansätze
+##  Lösungsansätze
 
 - **Buttonsteuerung via GPIO:** Node-RED empfängt Tastensignale über `rpi-gpio in` Nodes  
 - **Spotify-Steuerung per API:** HTTP-Requests an Spotify mit aktuellen Access-Tokens 
@@ -72,7 +72,7 @@ Die Steuerung erfolgt über ein Raspberry Pi in Verbindung mit einem Digilab-Mod
 
 ---
 
-## 🌟 Was macht dieses Projekt einzigartig?
+##  Was macht dieses Projekt einzigartig?
 
 Dieses Projekt vereint Hardware-Eingabe (Tasten), Webservice-Steuerung (Spotify API) und visuelles Feedback (LCD) in einem vollständig lokal steuerbaren, grafisch entwickelten Node-RED Flow. Die Integration der Spotify Web API in eine Raspberry-Pi-basierte Hardwarelösung ist nicht nur funktional, sondern auch ein hervorragendes Beispiel für modernes IoT-Prototyping mit Fokus auf Musik und Medien.  
 Es ist ein ideales Lernprojekt für Themen wie: API-Nutzung, OAuth2, GPIO, LCD-Steuerung und Node-RED-Visualisierung.
