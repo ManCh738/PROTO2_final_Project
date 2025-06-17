@@ -31,7 +31,7 @@ Die Steuerung erfolgt über ein Raspberry Pi in Verbindung mit einem Digilab-Mod
 ### Phase 3 – LCD-Ausgabe
 **Ziel:** Anzeige von Songtitel und Interpret auf LCD-Display  
 **Arbeitsschritte:**
-- Abfrage von aktuell gespieltem Song (`/v1/me/player/currently-playing`)  
+- Abfrage von aktuell gespieltem Song 
 - Ausgabe über I2C-Display 
 - Text kürzen/scrollen bei langen Titeln  
 
