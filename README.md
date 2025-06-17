@@ -40,8 +40,19 @@ Die Steuerung erfolgt über ein Raspberry Pi in Verbindung mit einem Digilab-Mod
 - Text kürzen/scrollen bei langen Titeln  
 
 ---
+### Phase 4 - Verwendete Features des Digilab
 
-### Phase 4 – Dokumentation
+ **Tastenfeld (S1–S6):**
+- S1: Nächster Song  
+- S2: Vorheriger Song  
+- S5: Wiedergabe pausieren  
+- S6: Wiedergabe starten  
+
+Diese Buttons sind direkt über das Digilab angeschlossen und mit **`rpi-gpio in`-Nodes** in Node-RED verbunden.
+
+---
+
+### Phase 5 – Dokumentation
 **Ziel:** Technische Dokumentation und Benutzeranleitung  
 **Arbeitsschritte:**
 - Aufbau der `README.md`  
