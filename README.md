@@ -39,7 +39,7 @@ Der Fokus liegt auf einem modularen Aufbau, der einfach verständlich, erweiterb
 
 **Schritte:**
 - Change Node: `msg.line = "2"` und `msg.payload = flow.temp`
-- Ausgabe auf Display (Zeile 2) vorbereiten
+- Ausgabe des °C auf dem Display (Zeile 2) 
 - Optional was ich aber gemacht habe: Test mit Debug Node durchführen
 
 **Wichtig:** Dieser schritt ist sehr Wichtig und macht das Projekt sichtbar und erlebbar. 
