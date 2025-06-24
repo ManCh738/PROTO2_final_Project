@@ -1,10 +1,8 @@
 # 🌦️ Finales Projekt: Wetteranzeige mit Node-RED & Digilab
 
 
-### [Zum Projektplanner](https://github.com/users/ManCh738/projects/2)
-
-### [Zur JSON Datei](./Wetter_NodeRed_Digilab.json)
-
+### [Zum Projektplanner (GitHub Board)](https://github.com/users/ManCh738/projects/2)
+### [Zur Flow-Datei (Wetter_NodeRed_Digilab.json)](./Wetter_NodeRed_Digilab.json)
 ---
 
 ## Ziel des Projekts
