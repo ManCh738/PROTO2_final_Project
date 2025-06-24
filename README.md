@@ -89,7 +89,3 @@ Dieses Projekt vereint Hardware-Eingabe (Tasten), Webservice-Steuerung (Spotify 
 Es ist ein ideales Lernprojekt für Themen wie: API-Nutzung, OAuth2, GPIO, LCD-Steuerung und Node-RED-Visualisierung.
 
 
-        ]
-    }
-]
-
