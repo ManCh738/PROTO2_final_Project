@@ -27,7 +27,7 @@ Der Fokus liegt auf einem modularen Aufbau, der einfach verständlich, erweiterb
 - Funktion zur Extraktion der Temperatur schreiben
 - Temperatur in `flow.temp` speichern
 
-**Wichtig:** Dieser Schritt ist sehr wichtig, weil ohne diese Phase funktioniert der Flow nicht.
+**Wichtig:** Dieser Schritt ist sehr wichtig, weil ohne diese Phase funktioniert das Projekt nicht.
 
 ---
 
@@ -40,7 +40,7 @@ Der Fokus liegt auf einem modularen Aufbau, der einfach verständlich, erweiterb
 - Ausgabe des °C auf dem Display (Zeile 2) 
 - Optional was ich aber gemacht habe: Test mit Debug Node durchführen
 
-**Wichtig:** Dieser schritt ist sehr Wichtig und macht das Projekt sichtbar und erlebbar. 
+**Wichtig:** Dieser schritt ist auch sehr Wichtig und macht das Projekt sichtbar und erlebbar. 
 
 ---
 
