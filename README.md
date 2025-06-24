@@ -1,7 +1,5 @@
-# Finales Proto-Projekt
+# 🌦️ Finales Projekt: Wetteranzeige mit Node-RED & Digilab
 
-
-## Wetteranzeige mit Node-RED & Digilab auf dem LCD Bildschirm
 
 ### [Zum Projektplanner](https://github.com/users/ManCh738/projects/2)
 
