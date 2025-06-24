@@ -1,6 +1,6 @@
 ##  Projektziel
 
-Ziel dieses Projekts ist es, ein Musiksteuerungssystem zu entwickeln, das über physische Buttons (S1–S6) Spotify-Funktionen wie „nächster Titel“, „vorheriger Titel“, „Wiedergabe starten/pausieren“ steuert und gleichzeitig auf einem LCD-Bildschirm den aktuellen Musiktitel sowie den Sänger anzeigt.  
+Ziel dieses Projekts ist es, ein Musiksteuerungssystem zu entwickeln, das über physische Buttons (S1–S6) Spotify-Funktionen wie „nächster Titel“, „vorheriger Titel“, „Wiedergabe starten/pausieren“ steuert und gleichzeitig auf einem LCD-Bildschirm den aktuellen Musiktitel anzeigt.  
 Die Steuerung erfolgt über ein Raspberry Pi in Verbindung mit einem Digilab-Modul. Die Programmierung und Steuerlogik wird vollständig mit **Node-RED** umgesetzt. Spotify wird über die **offizielle Web API** eingebunden.
 
 --- 
@@ -68,7 +68,7 @@ Diese Buttons sind direkt über das Digilab angeschlossen und mit **`rpi-gpio in
 - **Spotify Web API** – Steuerung der Musikwiedergabe  
 - **OAuth 2.0 (Authorization Code Flow)** – für sichere Spotify-Zugriffe  
 - **Digilab Modul** – GPIO-Eingabe über Buttons  
-- **LCD 16x2 (I2C)** – für Song- und Künstleranzeige  
+- **LCD 16x2 (I2C)** – für Songanzeige  
 - **Node-RED LCD Nodes** – zur Ansteuerung des Displays  
 
 ---
