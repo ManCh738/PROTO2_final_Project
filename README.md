@@ -1,7 +1,7 @@
 ##  Projektziel
 
 Ziel dieses Projekts ist es, ein Musiksteuerungssystem zu entwickeln, das über physische Buttons (S1–S6) Spotify-Funktionen wie „nächster Titel“, „vorheriger Titel“, „Wiedergabe starten/pausieren“ steuert und gleichzeitig auf einem LCD-Bildschirm den aktuellen Musiktitel anzeigt.  
-Die Steuerung erfolgt über ein Raspberry Pi in Verbindung mit einem Digilab-Modul. Die Programmierung und Steuerlogik wird vollständig mit **Node-RED** umgesetzt. Spotify wird über die **offizielle Web API** eingebunden.
+Die Steuerung erfolgt über ein Raspberry Pi in Verbindung mit einem Digilab. Die Programmierung und Steuerlogik wird vollständig mit **Node-RED** umgesetzt. Spotify wird über die **offizielle Web API** eingebunden.
 
 --- 
 
@@ -33,11 +33,11 @@ Die Steuerung erfolgt über ein Raspberry Pi in Verbindung mit einem Digilab-Mod
 ---
 
 ### Phase 3 – LCD-Ausgabe
-**Ziel:** Anzeige von Songtitel und Interpret auf LCD-Display  
+**Ziel:** Anzeige von Songtitel auf LCD-Display  
 **Arbeitsschritte:**
 - Abfrage von aktuell gespieltem Song 
 - Ausgabe über I2C-Display 
-- Text kürzen/scrollen bei langen Titeln  
+- Text kürzen bei langen Titeln  
 
 ---
 ### Phase 4 - Verwendete Features des Digilab
@@ -77,7 +77,7 @@ Diese Buttons sind direkt über das Digilab angeschlossen und mit **`rpi-gpio in
 
 - **Buttonsteuerung via GPIO:** Node-RED empfängt Tastensignale über `rpi-gpio in` Nodes  
 - **Spotify-Steuerung per API:** HTTP-Requests an Spotify mit aktuellen Access-Tokens 
-- **Metadaten-Anzeige:** Titel und Interpret werden regelmäßig abgefragt und per I2C-LCD angezeigt  
+- **Metadaten-Anzeige:** Titel werden regelmäßig abgefragt und per I2C-LCD angezeigt  
 - **Token-Management:** Access-Token werden mit dem Refresh-Token zyklisch erneuert   
 - **Fehlerbehandlung:** Prüfung auf Offline-Geräte, nicht autorisierte Requests oder abgelaufene Tokens  
 
