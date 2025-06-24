@@ -1,6 +1,6 @@
 # Wetteranzeige mit Node-RED & open-meteo (Luxemburg)
 
-#### [Zum GitHub-Projektboard](https://github.com/users/ManCh738/projects/2)
+### [Zum GitHub-Projektboard](https://github.com/users/ManCh738/projects/2)
 
 ---
 
