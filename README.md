@@ -1,6 +1,12 @@
-# Wetteranzeige mit Node-RED & open-meteo (Luxemburg)
+# Finales Proto-Projekt
+---
 
-### [Zum GitHub-Projektboard](https://github.com/users/ManCh738/projects/2)
+## Wetteranzeige mit Node-RED & Digilab auf dem LCD Bildschirm
+
+### [Zum Projektplanner](https://github.com/users/ManCh738/projects/2)
+
+### [Zur JSON Datei](./Wetter_NodeRed_Digilab.json)
+
 
 ---
 
