@@ -27,6 +27,7 @@ Grundlagen für ein funktionierendes und zielgerichtetes Projekt schaffen.
 
 **Wichtig:** Diese Phase ist entscheidend für den Erfolg des Projekts. Eine saubere Planung spart später Zeit, verhindert Fehler und sorgt für einen klaren roten Faden während der Umsetzung.
 
+---
 
 ### Phase 2 – Grundfunktionalität
 
