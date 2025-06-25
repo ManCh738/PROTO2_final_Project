@@ -35,7 +35,6 @@ Grundlagen für ein funktionierendes und zielgerichtetes Projekt schaffen.
 **Wichtigkeit:**  
 Diese Phase ist essenziell. Eine gute Planung reduziert späteren Korrekturaufwand und sorgt für einen reibungslosen Ablauf.
 
----
 
 ### Phase 2: Wetterdaten abrufen
 
@@ -49,10 +48,9 @@ Abruf und Verarbeitung der Temperaturdaten aus Luxemburg mithilfe der **Open-Met
 - Function-Node programmieren, um Temperaturwert zu extrahieren  
 - Temperaturwert in Flow-Variable `flow.temp` speichern
 
-**📌 Wichtigkeit:**  
+**Wichtigkeit:**  
 Wichtiger Kern des Projekts. Ohne funktionierenden Datenabruf ist die gesamte Anzeige nicht möglich.
 
----
 
 ### Phase 3: Anzeige & Ausgabe
 
@@ -66,7 +64,7 @@ Temperaturwert auf dem Digilab LCD-Display ausgeben.
 - Testen mit Debug Node  
 - Formatierung implementieren
 
-**📌 Wichtigkeit:**  
+**Wichtigkeit:**  
 Abschluss der Kette. Erst durch diese Phase wird das Projekt sichtbar, greifbar und bewertbar.
 
 ---
