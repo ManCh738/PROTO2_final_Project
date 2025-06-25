@@ -1,0 +1,446 @@
+[
+    {
+        "id": "79625485e5df130a",
+        "type": "tab",
+        "label": "Wetteranzeige ",
+        "disabled": false,
+        "info": ""
+    },
+    {
+        "id": "d081e93fef39b477",
+        "type": "http request",
+        "z": "79625485e5df130a",
+        "name": "Wetterdaten abrufen",
+        "method": "GET",
+        "ret": "obj",
+        "paytoqs": "ignore",
+        "url": "https://api.open-meteo.com/v1/forecast?latitude=49.6117&longitude=6.13&current_weather=true",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "insecureHTTPParser": false,
+        "authType": "",
+        "senderr": false,
+        "headers": [],
+        "x": 320,
+        "y": 40,
+        "wires": [
+            [
+                "46279f4c33b0c692"
+            ]
+        ]
+    },
+    {
+        "id": "46279f4c33b0c692",
+        "type": "function",
+        "z": "79625485e5df130a",
+        "name": "(°C) extrahieren",
+        "func": "let temp = msg.payload.current_weather.temperature;\nmsg.payload = temp + \" °C\";\nreturn msg;",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 580,
+        "y": 40,
+        "wires": [
+            [
+                "1c6dd9c8e1dc7778",
+                "9375cee338381c9e",
+                "68e2396968781fb5"
+            ]
+        ]
+    },
+    {
+        "id": "1c6dd9c8e1dc7778",
+        "type": "exec",
+        "z": "79625485e5df130a",
+        "command": "python3 /home/charly/digilab/lcd/init.py",
+        "addpay": "payload",
+        "append": "",
+        "useSpawn": "false",
+        "timer": "",
+        "winHide": false,
+        "name": "LCD-Anzeige initialisieren",
+        "x": 550,
+        "y": 120,
+        "wires": [
+            [],
+            [
+                "e2df7c60efa755c0"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "9375cee338381c9e",
+        "type": "debug",
+        "z": "79625485e5df130a",
+        "name": "Temperaturwert",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1000,
+        "y": 140,
+        "wires": []
+    },
+    {
+        "id": "e2df7c60efa755c0",
+        "type": "debug",
+        "z": "79625485e5df130a",
+        "name": "LCD Ausgabe",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1000,
+        "y": 100,
+        "wires": []
+    },
+    {
+        "id": "daa1ecb0d3239a0d",
+        "type": "rpi-gpio in",
+        "z": "79625485e5df130a",
+        "name": "S1",
+        "pin": "16",
+        "intype": "tri",
+        "debounce": "25",
+        "read": false,
+        "bcm": true,
+        "x": 50,
+        "y": 280,
+        "wires": [
+            [
+                "d081e93fef39b477",
+                "af005661b92da4de",
+                "60c20a6240e8c653",
+                "6d555fc6604f869e"
+            ]
+        ]
+    },
+    {
+        "id": "49bd70be54855a96",
+        "type": "template",
+        "z": "79625485e5df130a",
+        "name": "Schreibbefehl erstellen",
+        "field": "payload",
+        "fieldType": "msg",
+        "format": "handlebars",
+        "syntax": "mustache",
+        "template": " --line \"{{line}}\" --message \"{{payload}}\"",
+        "output": "str",
+        "x": 860,
+        "y": 280,
+        "wires": [
+            [
+                "36161129b1add2aa"
+            ]
+        ]
+    },
+    {
+        "id": "36161129b1add2aa",
+        "type": "exec",
+        "z": "79625485e5df130a",
+        "command": "python /home/charly/digilab/lcd/write.py",
+        "addpay": "payload",
+        "append": "",
+        "useSpawn": "false",
+        "timer": "",
+        "winHide": false,
+        "oldrc": false,
+        "name": "Schreibskript ausführen",
+        "x": 710,
+        "y": 620,
+        "wires": [
+            [
+                "32f410339652fb13"
+            ],
+            [
+                "9ab4e53675e91ba9"
+            ],
+            [
+                "6fac192dd9894d7d"
+            ]
+        ]
+    },
+    {
+        "id": "32f410339652fb13",
+        "type": "debug",
+        "z": "79625485e5df130a",
+        "name": "Standardausgabe",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1150,
+        "y": 580,
+        "wires": []
+    },
+    {
+        "id": "9ab4e53675e91ba9",
+        "type": "debug",
+        "z": "79625485e5df130a",
+        "name": "Fehlerausgabe",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1140,
+        "y": 620,
+        "wires": []
+    },
+    {
+        "id": "6fac192dd9894d7d",
+        "type": "debug",
+        "z": "79625485e5df130a",
+        "name": "Rückgabewert des Skripts",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1170,
+        "y": 660,
+        "wires": []
+    },
+    {
+        "id": "058528f366886e69",
+        "type": "inject",
+        "z": "79625485e5df130a",
+        "name": " Temperaturmesswert",
+        "props": [
+            {
+                "p": "line",
+                "v": "1",
+                "vt": "num"
+            },
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "Temperature",
+        "payloadType": "str",
+        "x": 440,
+        "y": 340,
+        "wires": [
+            [
+                "49bd70be54855a96"
+            ]
+        ]
+    },
+    {
+        "id": "7e193b273efa070a",
+        "type": "inject",
+        "z": "79625485e5df130a",
+        "name": "°C",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "line",
+                "v": "2",
+                "vt": "num"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "temp",
+        "payloadType": "flow",
+        "x": 390,
+        "y": 380,
+        "wires": [
+            [
+                "49bd70be54855a96"
+            ]
+        ]
+    },
+    {
+        "id": "68e2396968781fb5",
+        "type": "change",
+        "z": "79625485e5df130a",
+        "name": "Payload für LCD formatieren",
+        "rules": [
+            {
+                "t": "move",
+                "p": "payload",
+                "pt": "msg",
+                "to": "temp",
+                "tot": "flow"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 900,
+        "y": 40,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "af005661b92da4de",
+        "type": "debug",
+        "z": "79625485e5df130a",
+        "name": "debug 8",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 200,
+        "y": 120,
+        "wires": []
+    },
+    {
+        "id": "dd212efce1a537c1",
+        "type": "change",
+        "z": "79625485e5df130a",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "line",
+                "pt": "msg",
+                "to": "1",
+                "tot": "str"
+            },
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "Temperature",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 510,
+        "y": 280,
+        "wires": [
+            [
+                "49bd70be54855a96"
+            ]
+        ]
+    },
+    {
+        "id": "c5c9f9b7ebdbbf22",
+        "type": "change",
+        "z": "79625485e5df130a",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "line",
+                "pt": "msg",
+                "to": "2",
+                "tot": "str"
+            },
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "temp",
+                "tot": "flow"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 530,
+        "y": 500,
+        "wires": [
+            [
+                "49bd70be54855a96"
+            ]
+        ]
+    },
+    {
+        "id": "60c20a6240e8c653",
+        "type": "delay",
+        "z": "79625485e5df130a",
+        "name": "",
+        "pauseType": "delay",
+        "timeout": "1",
+        "timeoutUnits": "seconds",
+        "rate": "1",
+        "nbRateUnits": "1",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": false,
+        "allowrate": false,
+        "outputs": 1,
+        "x": 260,
+        "y": 280,
+        "wires": [
+            [
+                "dd212efce1a537c1"
+            ]
+        ]
+    },
+    {
+        "id": "6d555fc6604f869e",
+        "type": "delay",
+        "z": "79625485e5df130a",
+        "name": "",
+        "pauseType": "delay",
+        "timeout": "2",
+        "timeoutUnits": "seconds",
+        "rate": "1",
+        "nbRateUnits": "1",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": false,
+        "allowrate": false,
+        "outputs": 1,
+        "x": 220,
+        "y": 500,
+        "wires": [
+            [
+                "c5c9f9b7ebdbbf22"
+            ]
+        ]
+    }
+]
