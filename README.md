@@ -1,4 +1,4 @@
-  # 🌦️ Finales Projekt: Wetteranzeige mit Node-RED & Digilab
+  # 🌦️ Wetteranzeige mit Node-RED & Digilab (Finales Projekt)
 
 
 ### [Zum Projektplanner (GitHub Planner)](https://github.com/users/ManCh738/projects/2)
@@ -7,13 +7,20 @@
 
 ## Ziel des Projekts
 
-Ziel dieses Projekts ist es, mithilfe von **Node-RED auf einem Raspberry Pi** aktuelle **Temperaturdaten aus Luxemburg** automatisiert über meine Wetter-API abzurufen und auf meinem **LCD Display** auszugeben.  
+Ziel dieses Projekts ist es, **eine automatisierte, lokale Wetteranzeige** zu realisieren, die aktuelle Temperaturdaten von Luxemburg abruft und diese auf meinem LCD-Display vom Digilab ausgibt.
+Die gesamte Logik wird mithilfe von **Node-RED** und meinem **Raspberry Pi** umgesetzt. Dabei wird auf Cloud-Abhängigkeiten (außer dem API-Zugriff) bewusst verzichtet, um eine robuste, offline-taugliche Lösung zu schaffen.
 
-Der Fokus liegt auf einem modularen Aufbau, der einfach verständlich, erweiterbar und zuverlässig läuft und ohne Cloud-Abhängigkeiten außer dem API-Zugriff.
+Im Vordergrund stehen:
+- **Echtzeit-Wettereinsicht**
+- **Modularer Aufbau**
+- **Praxistauglichkeit und Erweiterbarkeit**
+- **Klar dokumentierte Umsetzung**
 
 ---
 
-##  Projektaufbau in Phasen
+## Projektstruktur & Arbeitsphasen
+Das Projekt wurde in klar strukturierte Phasen unterteilt, um einen sauberen Entwicklungsprozess sicherzustellen. Jede Phase ist für den Erfolg des Projekts entscheidend:
+
 
 ### Phase 1: Planung und Konzeption
 **Ziel:**
@@ -25,60 +32,67 @@ Grundlagen für ein funktionierendes und zielgerichtetes Projekt schaffen.
 
 **Struktur und Zeitplan erstellen:** Grobe Planung (Github Planner) der Umsetzung in Phasen und zeitlicher Ablauf.
 
-**Wichtig:** Diese Phase ist entscheidend für den Erfolg des Projekts. Eine saubere Planung spart später Zeit, verhindert Fehler und sorgt für einen klaren roten Faden während der Umsetzung.
+**Wichtigkeit:**  
+Diese Phase ist essenziell. Eine gute Planung reduziert späteren Korrekturaufwand und sorgt für einen reibungslosen Ablauf.
 
 ---
 
-### Phase 2 – Grundfunktionalität
+### Phase 2: Wetterdaten abrufen
 
-**Ziel:** Wetterdaten abrufen und Temperatur extrahieren.
+**Ziel:**  
+Abruf und Verarbeitung der Temperaturdaten aus Luxemburg mithilfe der **Open-Meteo API.**
 
-**Schritte:**
-- HTTP Request Node konfigurieren
-- API-Daten von open-meteo für Luxemburg abrufen
-- Funktion zur Extraktion der Temperatur schreiben
-- Temperatur in `flow.temp` speichern
+**Arbeitsschritte:**  
+- Node-RED Flow erstellen  
+- HTTP Request Node konfigurieren  
+- Antwort als JSON empfangen und analysieren  
+- Function-Node programmieren, um Temperaturwert zu extrahieren  
+- Temperaturwert in Flow-Variable `flow.temp` speichern
 
-**Wichtig:** Dieser Schritt ist sehr wichtig, weil ohne diese Phase funktioniert das Projekt nicht.
-
----
-
-### Phase 3 – Anzeige & Ausgabe
-
-**Ziel:** Temperaturdaten sichtbar machen.
-
-**Schritte:**
-- Change Node: `msg.line = "2"` und `msg.payload = flow.temp`
-- Ausgabe des °C auf dem Display (Zeile 2) 
-- Optional was ich aber gemacht habe: Test mit Debug Node durchführen
-
-**Wichtig:** Dieser schritt ist auch sehr Wichtig und macht das Projekt sichtbar und erlebbar. 
+**📌 Wichtigkeit:**  
+Wichtiger Kern des Projekts. Ohne funktionierenden Datenabruf ist die gesamte Anzeige nicht möglich.
 
 ---
 
-## Technologien & Lösungsansätze
+### Phase 3: Anzeige & Ausgabe
+
+**Ziel:**  
+Temperaturwert auf dem Digilab LCD-Display ausgeben.
+
+**Arbeitsschritte:**  
+- LCD Display mit Node-RED verbinden (über entsprechenden Node)  
+- `msg.line = "2"` setzen, um Zeile 2 des Displays anzusprechen  
+- `msg.payload = flow.temp` setzen, um Temperatur auszugeben  
+- Testen mit Debug Node  
+- Formatierung implementieren
+
+**📌 Wichtigkeit:**  
+Abschluss der Kette. Erst durch diese Phase wird das Projekt sichtbar, greifbar und bewertbar.
+
+---
 
 ### Verwendete Technologien
 - **Node-RED**: Visuelles Tool zur Programmierung von Logikabläufen
 - **Raspberry Pi**: Lokale Steuerzentrale für das Projekt
 - **open-meteo API**: Kostenloser Wetterdaten-Anbieter mit kostenloser API
-- **LCD-Display**: Zur Anzeige der Temperatur von Luxemburg
+- **LCD-Display**: Zur Anzeige des Wetterwertes von Luxemburg
 - **JavaScript / JSON**: Für Datenverarbeitung in Function-Nodes
 
 ---
 
-### Lösungsansätze
+### Lösungsansätze & Besonderheiten
 
-- Nutzung von **Flow-Variablen (`flow.temp`)**, um Daten zwischen Nodes zu übertragen  
-- Modularer Aufbau mit **klarer Trennung** von API, Logik und Ausgabe  
-- Verwendung von **Change-Node**, um gezielt bestimmte Display-Zeilen anzusprechen  
+- **Modularer Aufbau:** API, Verarbeitung und Ausgabe sind klar getrennt und können einzelt getestet werden.
+- **Verwendung von Flow-Variablen:** Daten wie `flow.temp` ermöglichen sauberen, übergreifenden Datenfluss zwischen Nodes.
+- **Change & Function Nodes:** Steuerung der Anzeigezeile und Ausgabeformat durch gezielte Programmierung.
+- **Keine API-Schlüssel notwendig:** Open-Meteo erlaubt anonymen Zugriff. Dies ist ideal für mein Projekt.
+
 ---
 
 ## Warum ist dieses Projekt besonders?
 
-- **Einfach nachbaubar**, auch für Einsteiger in Node-RED & Raspberry Pi  
-- **Lokal steuerbar**, ohne aufwändige Web-Dashboards oder Drittanbieter  
-- **Open-Source API (open-meteo)** – keine API-Schlüssel nötig  
-- **Klar strukturiert und dokumentiert** 
-- **Echtzeitanzeige** von Wetterdaten auf physischem Display
+- Es ist **Lokal steuerbar**, ohne aufwändige Web-Dashboards oder Drittanbieter  
+- Bei der **Open-Source API** benötigt man keine API-Schlüssel
+- Ich habe alles **Klar strukturiert und dokumentiert** 
+- **Echtzeitanzeige** von Wetterdaten auf dem LCD-Display
 
