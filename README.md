@@ -15,7 +15,7 @@ Der Fokus liegt auf einem modularen Aufbau, der einfach verständlich, erweiterb
 
 ##  Projektaufbau in Phasen
 
-## Phase 1: Planung und Konzeption
+### Phase 1: Planung und Konzeption
 **Ziel:**
 Grundlagen für ein funktionierendes und zielgerichtetes Projekt schaffen.
 
