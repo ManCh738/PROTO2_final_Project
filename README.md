@@ -1,4 +1,4 @@
-# 🌦️ Finales Projekt: Wetteranzeige mit Node-RED & Digilab
+  # 🌦️ Finales Projekt: Wetteranzeige mit Node-RED & Digilab
 
 
 ### [Zum Projektplanner (GitHub Board)](https://github.com/users/ManCh738/projects/2)
@@ -15,7 +15,23 @@ Der Fokus liegt auf einem modularen Aufbau, der einfach verständlich, erweiterb
 
 ##  Projektaufbau in Phasen
 
-### Phase 1 – Grundfunktionalität
+## Phase 1: Planung und Konzeption
+**Ziel:**
+Grundlagen für ein funktionierendes und zielgerichtetes Projekt schaffen.
+
+**Schritte:**
+
+**Projektziel definieren:** Klare Festlegung, was das Projekt leisten soll.
+
+**Hardware- und Software auswählen:** Entscheidung über alle benötigten Komponenten und Tools.
+
+**Struktur und Zeitplan erstellen:** Grobe Planung (Github Planner) der Umsetzung in Phasen und zeitlicher Ablauf.
+
+**Wichtig:**
+Diese Phase ist entscheidend für den Erfolg des Projekts. Eine saubere Planung spart später Zeit, verhindert Fehler und sorgt für einen klaren roten Faden während der Umsetzung.
+
+
+### Phase 2 – Grundfunktionalität
 
 **Ziel:** Wetterdaten abrufen und Temperatur extrahieren.
 
@@ -29,7 +45,7 @@ Der Fokus liegt auf einem modularen Aufbau, der einfach verständlich, erweiterb
 
 ---
 
-### Phase 2 – Anzeige & Ausgabe
+### Phase 3 – Anzeige & Ausgabe
 
 **Ziel:** Temperaturdaten sichtbar machen.
 
