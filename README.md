@@ -23,12 +23,9 @@ Grundlagen für ein funktionierendes und zielgerichtetes Projekt schaffen.
 
 **Projektziel definieren:** Klare Festlegung, was das Projekt leisten soll.
 
-**Hardware- und Software auswählen:** Entscheidung über alle benötigten Komponenten und Tools.
-
 **Struktur und Zeitplan erstellen:** Grobe Planung (Github Planner) der Umsetzung in Phasen und zeitlicher Ablauf.
 
-**Wichtig:**
-Diese Phase ist entscheidend für den Erfolg des Projekts. Eine saubere Planung spart später Zeit, verhindert Fehler und sorgt für einen klaren roten Faden während der Umsetzung.
+**Wichtig:** Diese Phase ist entscheidend für den Erfolg des Projekts. Eine saubere Planung spart später Zeit, verhindert Fehler und sorgt für einen klaren roten Faden während der Umsetzung.
 
 
 ### Phase 2 – Grundfunktionalität
