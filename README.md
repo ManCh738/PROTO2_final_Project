@@ -7,19 +7,19 @@
 
 ## Ziel des Projekts
 
-Ziel dieses Projekts ist es, **eine automatisierte, lokale Wetteranzeige** zu realisieren, die aktuelle Temperaturdaten von Luxemburg abruft und diese auf meinem LCD-Display vom Digilab ausgibt.
+Ziel dieses Projekts ist es, **eine automatisierte, lokale Wetteranzeige** zu realisieren, die **aktuelle Temperaturdaten von Luxemburg** abruft und diese auf meinem LCD-Display vom Digilab ausgibt.
 Die gesamte Logik wird mithilfe von **Node-RED** und meinem **Raspberry Pi** umgesetzt. Dabei wird auf Cloud-Abhängigkeiten (außer dem API-Zugriff) bewusst verzichtet, um eine robuste, offline-taugliche Lösung zu schaffen.
 
 Im Vordergrund stehen:
 - **Echtzeit-Wettereinsicht**
 - **Modularer Aufbau**
-- **Praxistauglichkeit und Erweiterbarkeit**
+- **Praxistauglichkeit**
 - **Klar dokumentierte Umsetzung**
 
 ---
 
 ## Projektstruktur & Arbeitsphasen
-Das Projekt wurde in klar strukturierte Phasen unterteilt, um einen sauberen Entwicklungsprozess sicherzustellen. Jede Phase ist für den Erfolg des Projekts entscheidend:
+Das Projekt habe ich in klar strukturierte Phasen unterteilt, um einen sauberen Entwicklungsprozess sicherzustellen. Jede Phase ist für den Erfolg des Projekts entscheidend:
 
 
 ### Phase 1: Planung und Konzeption
@@ -30,7 +30,7 @@ Grundlagen für ein funktionierendes und zielgerichtetes Projekt schaffen.
 
 **Projektziel definieren:** Klare Festlegung, was das Projekt leisten soll.
 
-**Struktur und Zeitplan erstellen:** Grobe Planung (Github Planner) der Umsetzung in Phasen und zeitlicher Ablauf.
+**Struktur und Zeitplan erstellen:** Grobe Planung der Umsetzung in Phasen mit Hilfe des **GitHub Planners**. Enthält den zeitlichen Ablauf, die jeweiligen Schritte (z. B. Schritt 1) sowie eine Einschätzung des Schwierigkeitsgrads.
 
 **Wichtigkeit:**  
 Diese Phase ist essenziell. Eine gute Planung reduziert späteren Korrekturaufwand und sorgt für einen reibungslosen Ablauf.
@@ -75,6 +75,7 @@ Abschluss der Kette. Erst durch diese Phase wird das Projekt sichtbar, greifbar 
 - **open-meteo API**: Kostenloser Wetterdaten-Anbieter mit kostenloser API
 - **LCD-Display**: Zur Anzeige des Wetterwertes von Luxemburg
 - **JavaScript / JSON**: Für Datenverarbeitung in Function-Nodes
+- **Digilab**
 
 
 
@@ -92,5 +93,5 @@ Abschluss der Kette. Erst durch diese Phase wird das Projekt sichtbar, greifbar 
 - Es ist **Lokal steuerbar**, ohne aufwändige Web-Dashboards oder Drittanbieter  
 - Bei der **Open-Source API** benötigt man keine API-Schlüssel
 - Ich habe alles **Klar strukturiert und dokumentiert** 
-- **Echtzeitanzeige** von Wetterdaten auf dem LCD-Display
+- **Echtzeitanzeige** von Wetterdaten auf dem LCD-Display, wenn man den Taster "S1" drückt
 
