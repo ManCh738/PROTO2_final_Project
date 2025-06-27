@@ -1,5 +1,4 @@
-  # 🌦️ Wetteranzeige mit Node-RED & Digilab 
-  ## Finales Projekt
+  # 🌦️ Wetteranzeige mit Node-RED & Digilab (Finales Projekt)
 
 
 ### [Zum Projektplanner (GitHub Planner)](https://github.com/users/ManCh738/projects/2)
