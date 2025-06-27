@@ -76,7 +76,7 @@ Abschluss der Kette. Erst durch diese Phase wird das Projekt sichtbar, greifbar 
 - **LCD-Display**: Zur Anzeige des Wetterwertes von Luxemburg
 - **JavaScript / JSON**: Für Datenverarbeitung in Function-Nodes
 
----
+
 
 ### Lösungsansätze & Besonderheiten
 
