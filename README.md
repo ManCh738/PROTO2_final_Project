@@ -73,7 +73,7 @@ Abschluss der Kette. Erst durch diese Phase wird das Projekt sichtbar, greifbar 
 - **Node-RED**: Visuelles Tool zur Programmierung von Logikabläufen
 - **Raspberry Pi**: Lokale Steuerzentrale für das Projekt
 - **open-meteo API**: Kostenloser Wetterdaten-Anbieter mit kostenloser API
-- **LCD-Display**: Zur Anzeige des Wetterwertes von Luxemburg
+- **LCD-Display der beim Digilab ist**: Zur Anzeige des Wetterwertes von Luxemburg
 - **JavaScript / JSON**: Für Datenverarbeitung in Function-Nodes
 - **Digilab**
 
